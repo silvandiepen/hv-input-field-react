@@ -1,0 +1,24 @@
+body {
+	margin: 0;
+	font-family: "Nexa", sans-serif;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: white;
+}
+
+section {
+	padding: 2rem;
+}
+.background--champagne {
+	color: #2800a0;
+	background-color: #f3e5d8;
+}
+.background--green {
+	color: white;
+	background-color: #00d66c;
+}
+.background--blue {
+	color: white;
+	background-color: #2800a0;
+}
