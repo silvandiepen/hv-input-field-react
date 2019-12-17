@@ -22,3 +22,9 @@ section {
 	color: white;
 	background-color: #2800a0;
 }
+input-field {
+	display: block;
+}
+input-field + input-field {
+	margin-top: 1rem;
+}

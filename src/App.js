@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import "./index.css";
 
 export default function ExampleComponent() {
-	const [message, setMessage] = useState("React Example");
+	const [form, setState] = useState({
+		firstName: "React",
+		lastName: "Example"
+	});
+
+	const updateField = (event) => {
+		setState({
+			...form,
+			[event.target.name]: event.target.value
+		});
+	};
 
 	return (
 		<div className="App">
@@ -13,24 +23,38 @@ export default function ExampleComponent() {
 			<section className="background--white">
 				<h3>Web component Input</h3>
 				<input-field
-					label="Input in React"
-					onChange={(event) => setMessage(event.target.value)}
-					onEventBindValue={(event) => setMessage(event.target.value)}
-					value={message}
+					label="First name"
+					name="firstName"
+					onChange={updateField}
+					onEventBindValue={updateField}
+					value={form.firstName}
+				></input-field>
+				<input-field
+					label="Last name"
+					name="lastName"
+					onChange={updateField}
+					onEventBindValue={updateField}
+					value={form.lastName}
 				></input-field>
 			</section>
 
 			<section className="background--champagne">
 				<h3>Default HTML Input</h3>
 				<input
-					onChange={(event) => setMessage(event.target.value)}
-					value={message}
+					onChange={updateField}
+					name="firstName"
+					value={form.firstName}
+				></input>
+				<input
+					onChange={updateField}
+					name="lastName"
+					value={form.lastName}
 				></input>
 			</section>
 			<section className="background--blue">
-				<p>
-					Message: <strong>{message}</strong>
-				</p>
+				<strong>
+					<pre>{JSON.stringify(form)}</pre>
+				</strong>
 			</section>
 		</div>
 	);
