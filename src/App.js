@@ -1,4 +1,7 @@
+/** @jsx nativeEvents */
+// eslint-disable-next-line
 import React, { useState } from "react";
+import nativeEvents from "jsx-native-events";
 import "./index.css";
 
 export default function ExampleComponent() {
@@ -25,30 +28,39 @@ export default function ExampleComponent() {
 				<input-field
 					label="First name"
 					name="firstName"
-					onChange={updateField}
-					onEventBindValue={updateField}
 					value={form.firstName}
+					onChange={(event) => {
+						console.log("test");
+						updateField();
+						console.log(event);
+					}}
+					onEventBindValue={(event) => {
+						console.log("test2");
+						updateField();
+						console.log(event);
+					}}
 				></input-field>
+
 				<input-field
 					label="Last name"
 					name="lastName"
+					value={form.lastName}
 					onChange={updateField}
 					onEventBindValue={updateField}
-					value={form.lastName}
 				></input-field>
 			</section>
 
 			<section className="background--champagne">
 				<h3>Default HTML Input</h3>
 				<input
-					onChange={updateField}
 					name="firstName"
 					value={form.firstName}
+					onChange={updateField}
 				></input>
 				<input
-					onChange={updateField}
 					name="lastName"
 					value={form.lastName}
+					onChange={updateField}
 				></input>
 			</section>
 			<section className="background--blue">
