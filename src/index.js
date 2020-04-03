@@ -4,7 +4,7 @@ import "./App.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-import { applyPolyfills, defineCustomElements } from "hv-input-field/loader";
+import { applyPolyfills, defineCustomElements } from "hv-styleguide/loader";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
